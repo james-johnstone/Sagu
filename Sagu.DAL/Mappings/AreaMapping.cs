@@ -4,14 +4,15 @@ using System.Data.Entity.ModelConfiguration;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using Sagu.Model;
 
-namespace SaguModel.DAL.Mappings
+namespace Sagu.DAL.Mappings
 {
-    public class ExplorerMapping : EntityTypeConfiguration<Explorer>
+    public class AreaMapping : EntityTypeConfiguration<Area>
     {
-        public ExplorerMapping()
+        public AreaMapping()
         {
-            Property(e => e.Name).HasMaxLength(20);
+            Property(a => a.Name).HasMaxLength(20);
         }
     }
 }

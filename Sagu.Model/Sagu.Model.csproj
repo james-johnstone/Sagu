@@ -7,8 +7,8 @@
     <ProjectGuid>{E94D38E4-4B14-4992-998B-C91307291FDE}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>SaguModel</RootNamespace>
-    <AssemblyName>SaguModel</AssemblyName>
+    <RootNamespace>Sagu.Model</RootNamespace>
+    <AssemblyName>Sagu.Model</AssemblyName>
     <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
   </PropertyGroup>

@@ -5,12 +5,13 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Data.Entity;
 using System.Data.Entity.ModelConfiguration;
-using SaguModel.DAL.Mappings;
+using Sagu.DAL.Mappings;
+using Sagu.Model;
 
-namespace SaguModel.DAL
+namespace Sagu.DAL
 {
-    public class SaguModelContext : DbContext
-    {
+    public class SaguContext : DbContext
+    { 
         public DbSet<Explorer> Explorers { get; set; }
         public DbSet<Area> Areas { get; set; }
         public DbSet<ExploredArea> ExploredAreas { get; set; }

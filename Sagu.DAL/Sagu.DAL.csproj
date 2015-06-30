@@ -7,8 +7,8 @@
     <ProjectGuid>{E60B7F7C-9979-4EEB-81DD-750B71FBAD29}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>SaguModel.DAL</RootNamespace>
-    <AssemblyName>SaguModel.DAL</AssemblyName>
+    <RootNamespace>Sagu.DAL</RootNamespace>
+    <AssemblyName>Sagu.DAL</AssemblyName>
     <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
   </PropertyGroup>
@@ -58,9 +58,9 @@
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\SaguModel\SaguModel.csproj">
+    <ProjectReference Include="..\Sagu.Model\Sagu.Model.csproj">
       <Project>{e94d38e4-4b14-4992-998b-c91307291fde}</Project>
-      <Name>SaguModel</Name>
+      <Name>Sagu.Model</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
