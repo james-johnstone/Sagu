@@ -8,7 +8,15 @@ namespace SaguModel
 {
     public class Explorer
     {
-        public Guid ID { get; set; }
+        public Guid Id { get; set; }
         public string Name { get; set; }
+
+        public virtual ICollection<ExploredArea> ExploredAreas { get; set; }
+
+
+        public Explorer()
+        {
+            ExploredAreas = new List<ExploredArea>();
+        }
     }
 }
