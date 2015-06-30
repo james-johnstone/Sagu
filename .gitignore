@@ -3,6 +3,9 @@
 [Oo]bj/
 ls
 
+# Packages
+packages/
+
 # Log & Bak files
 *.[Ll]og
 
