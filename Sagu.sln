@@ -9,6 +9,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Sagu.DAL", "Sagu.DAL\Sagu.D
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Sagu.API", "Sagu.API\Sagu.API.csproj", "{9E95C6F0-5217-4850-985E-C5983E8D6FE6}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Sagu.Services", "Sagu.Services\Sagu.Services.csproj", "{8E8DF6B9-0D34-4343-AB5A-CE7D2E9A2415}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -27,6 +29,10 @@ Global
 		{9E95C6F0-5217-4850-985E-C5983E8D6FE6}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{9E95C6F0-5217-4850-985E-C5983E8D6FE6}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{9E95C6F0-5217-4850-985E-C5983E8D6FE6}.Release|Any CPU.Build.0 = Release|Any CPU
+		{8E8DF6B9-0D34-4343-AB5A-CE7D2E9A2415}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{8E8DF6B9-0D34-4343-AB5A-CE7D2E9A2415}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{8E8DF6B9-0D34-4343-AB5A-CE7D2E9A2415}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{8E8DF6B9-0D34-4343-AB5A-CE7D2E9A2415}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
