@@ -3,6 +3,8 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Net.Http.Headers;
 using System.Web.Http;
+using Newtonsoft.Json;
+using Newtonsoft.Json.Serialization;
 
 namespace Sagu.API
 {
@@ -21,7 +23,9 @@ namespace Sagu.API
             );
 
             config.Formatters.JsonFormatter.SupportedMediaTypes.Add(new MediaTypeHeaderValue("text/html"));
-
+            config.Formatters.JsonFormatter.SerializerSettings.Formatting = Formatting.Indented;
+            config.Formatters.JsonFormatter.SerializerSettings.ContractResolver = new CamelCasePropertyNamesContractResolver();
+            
             return config;
         }
     }
