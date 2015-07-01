@@ -7,11 +7,10 @@ namespace Sagu.API
 {
     public static class WebApiConfig
     {
-        public static void Register(HttpConfiguration config)
+        public static HttpConfiguration Register()
         {
-            // Web API configuration and services
+            var config = new HttpConfiguration();
 
-            // Web API routes
             config.MapHttpAttributeRoutes();
 
             config.Routes.MapHttpRoute(
@@ -19,6 +18,8 @@ namespace Sagu.API
                 routeTemplate: "api/{controller}/{id}",
                 defaults: new { id = RouteParameter.Optional }
             );
+
+            return config;
         }
     }
 }
