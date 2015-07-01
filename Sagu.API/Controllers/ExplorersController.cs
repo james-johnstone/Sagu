@@ -6,7 +6,7 @@ using System.Net.Http;
 using System.Web.Http;
 using Sagu.Services;
 
-namespace Sagu.API.Controllers
+namespace Sagu.API
 {
     public class ExplorersController : ApiController
     {
