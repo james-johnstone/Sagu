@@ -7,6 +7,7 @@ using System.Data.Entity;
 using System.Data.Entity.ModelConfiguration;
 using Sagu.DAL.Mappings;
 using Sagu.Model;
+using Sagu.DAL.Migrations;
 
 namespace Sagu.DAL
 {
@@ -17,8 +18,12 @@ namespace Sagu.DAL
         public DbSet<ExploredArea> ExploredAreas { get; set; }
 
         public SaguContext()
+            : base("Sagu")
         {
+            Database.SetInitializer(new MigrateDatabaseToLatestVersion<SaguContext, Configuration>());
+
             Configuration.LazyLoadingEnabled = true;
+            Configuration.ProxyCreationEnabled = false;
         }
 
         protected override void OnModelCreating(DbModelBuilder modelBuilder)

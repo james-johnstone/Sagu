@@ -4,6 +4,7 @@ namespace Sagu.DAL.Migrations
     using System.Data.Entity;
     using System.Data.Entity.Migrations;
     using System.Linq;
+    using Sagu.Model;
 
     internal sealed class Configuration : DbMigrationsConfiguration<Sagu.DAL.SaguContext>
     {
@@ -26,6 +27,9 @@ namespace Sagu.DAL.Migrations
             //      new Person { FullName = "Rowan Miller" }
             //    );
             //
+
+            context.Explorers.AddOrUpdate(e => e.Name, new Explorer() { Name = "Jamie" });
+            context.SaveChanges();
         }
     }
 }
