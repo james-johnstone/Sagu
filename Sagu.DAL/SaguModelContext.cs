@@ -16,6 +16,11 @@ namespace Sagu.DAL
         public DbSet<Area> Areas { get; set; }
         public DbSet<ExploredArea> ExploredAreas { get; set; }
 
+        public SaguContext()
+        {
+            Configuration.LazyLoadingEnabled = true;
+        }
+
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {
             modelBuilder.Configurations.Add(new ExplorerMapping());
