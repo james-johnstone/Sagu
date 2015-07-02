@@ -8,7 +8,7 @@ namespace Sagu.Services
 {
     public static class ModelExtensions
     {
-        public static Sagu.DTO.Explorer AsDTO(this Sagu.Model.Explorer explorer)
+        public static DTO.Explorer AsDTO(this Model.Explorer explorer)
         {
             return new DTO.Explorer()
             {
@@ -18,7 +18,7 @@ namespace Sagu.Services
             };
         }
 
-        public static Sagu.DTO.ExploredArea AsDTO(this Sagu.Model.ExploredArea exploredArea)
+        public static DTO.ExploredArea AsDTO(this Model.ExploredArea exploredArea)
         {
             return new DTO.ExploredArea()
             {
@@ -28,7 +28,7 @@ namespace Sagu.Services
             };
         }
 
-        public static Sagu.DTO.Area AsDTO(this Sagu.Model.Area area)
+        public static DTO.Area AsDTO(this Model.Area area)
         {
             return new DTO.Area()
             {
@@ -38,7 +38,7 @@ namespace Sagu.Services
             };
         }
 
-        public static Sagu.Model.Explorer AsEntity(this Sagu.DTO.Explorer explorer)
+        public static Model.Explorer AsEntity(this DTO.Explorer explorer)
         {
             return new Sagu.Model.Explorer()
             {

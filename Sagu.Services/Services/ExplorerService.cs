@@ -12,7 +12,7 @@ namespace Sagu.Services
 {
     public class ExplorerService
     {
-        public IEnumerable<Sagu.DTO.Explorer> GetExplorers()
+        public IEnumerable<DTO.Explorer> GetExplorers()
         {
             using (var context = new SaguContext())
             {
@@ -20,7 +20,7 @@ namespace Sagu.Services
             }
         }
 
-        public Sagu.DTO.Explorer GetExplorer(Guid id)
+        public DTO.Explorer GetExplorer(Guid id)
         {
             using (var context = new SaguContext())
             {
@@ -28,7 +28,7 @@ namespace Sagu.Services
             }
         }
 
-        public Sagu.DTO.Explorer CreateExplorer(Sagu.DTO.Explorer explorer)
+        public DTO.Explorer CreateExplorer(DTO.Explorer explorer)
         {
             using (var context = new SaguContext())
             {
@@ -39,7 +39,7 @@ namespace Sagu.Services
             }
         }
 
-        public Sagu.DTO.Explorer UpdateExplorer(Sagu.DTO.Explorer explorer)
+        public DTO.Explorer UpdateExplorer(DTO.Explorer explorer)
         {
             using (var context = new SaguContext())
             {
