@@ -126,6 +126,10 @@
     <Folder Include="Models\" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\Sagu.DTO\Sagu.DTO.csproj">
+      <Project>{16d9c2f6-f343-4e0e-abbf-e0a37ec186fe}</Project>
+      <Name>Sagu.DTO</Name>
+    </ProjectReference>
     <ProjectReference Include="..\Sagu.Model\Sagu.Model.csproj">
       <Project>{e94d38e4-4b14-4992-998b-c91307291fde}</Project>
       <Name>Sagu.Model</Name>

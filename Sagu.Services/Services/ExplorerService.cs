@@ -11,38 +11,40 @@ namespace Sagu.Services
 {
     public class ExplorerService
     {
-        public IEnumerable<Explorer> GetExplorers()
+        public IEnumerable<Sagu.DTO.Explorer> GetExplorers()
         {
             using (var context = new SaguContext())
             {
-                return context.Explorers.Include(e => e.ExploredAreas).ToList();
+                return context.Explorers.Include(e => e.ExploredAreas).Select(e => e.AsDTO());
             }
         }
 
-        public Explorer GetExplorer(Guid id)
+        public Sagu.DTO.Explorer GetExplorer(Guid id)
         {
             using (var context = new SaguContext())
             {
-                return context.Explorers.Find(id);
+                return context.Explorers.Find(id).Get(e => e.AsDTO());
             }
         }
 
-        public Explorer CreateExplorer(Explorer explorer)
+        public Sagu.DTO.Explorer CreateExplorer(Sagu.DTO.Explorer explorer)
         {
             using (var context = new SaguContext())
             {
-                var newExplorer = context.Explorers.Add(explorer);
+                var newExplorer = context.Explorers.Add(explorer.AsEntity());
                 context.SaveChanges();
 
-                return newExplorer;
+                return newExplorer.AsDTO();
             }
         }
 
-        public void DeleteExplorer(Explorer explorer)
+        public void DeleteExplorer(Sagu.DTO.Explorer explorer)
         {
             using (var context = new SaguContext())
             {
-                context.Explorers.Remove(explorer);
+                var explorerToRemove = context.Explorers.Find(explorer.Id);
+
+                context.Explorers.Remove(explorerToRemove);
                 context.SaveChanges();
             }
         }
