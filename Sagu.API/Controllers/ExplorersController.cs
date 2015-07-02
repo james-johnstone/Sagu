@@ -46,5 +46,25 @@ namespace Sagu.API
                 return InternalServerError();
             }
         }
+
+        public IHttpActionResult Put([FromBody] Explorer explorer)
+        {
+            if (explorer == null)
+                return BadRequest();
+
+            try
+            {
+                var updatedExplorer = ExplorerService.UpdateExplorer(explorer);
+
+                if (updatedExplorer == null)
+                    return NotFound();
+
+                return Ok(updatedExplorer);
+            }
+            catch (Exception)
+            {
+                return InternalServerError();
+            }
+        }
     }
 }

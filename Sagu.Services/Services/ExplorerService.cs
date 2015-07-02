@@ -39,6 +39,22 @@ namespace Sagu.Services
             }
         }
 
+        public Sagu.DTO.Explorer UpdateExplorer(Sagu.DTO.Explorer explorer)
+        {
+            using (var context = new SaguContext())
+            {
+                var explorerToUpdate = context.Explorers.Find(explorer.Id);
+
+                if (explorerToUpdate == null)
+                    return null;
+
+                context.Entry(explorerToUpdate).CurrentValues.SetValues(explorer);
+                context.SaveChanges();
+
+                return explorer;
+            }
+        }
+
         public void DeleteExplorer(Sagu.DTO.Explorer explorer)
         {
             using (var context = new SaguContext())
