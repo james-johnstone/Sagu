@@ -6,13 +6,11 @@ using System.Threading.Tasks;
 
 namespace Sagu.Model
 {
-    public class Area
+    public class AreaImage
     {
         public Guid Id { get; set; }
         public string Name { get; set; }
-        public int Size { get; set; }
-
-        public Guid ImageId { get; set; }
-        public AreaImage Image { get; set; }
+        public Guid AreaId { get; set; }
+        public Area Area { get; set; }
     }
 }

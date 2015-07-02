@@ -16,6 +16,7 @@ namespace Sagu.DAL
         public DbSet<Explorer> Explorers { get; set; }
         public DbSet<Area> Areas { get; set; }
         public DbSet<ExploredArea> ExploredAreas { get; set; }
+        public DbSet<AreaImage> AreaImages { get; set; }
 
         public SaguContext()
             : base("Sagu")
@@ -31,6 +32,7 @@ namespace Sagu.DAL
             modelBuilder.Configurations.Add(new ExplorerMapping());
             modelBuilder.Configurations.Add(new AreaMapping());
             modelBuilder.Configurations.Add(new ExplorerAreaMapping());
+            modelBuilder.Configurations.Add(new AreaImageMapping());
 
             base.OnModelCreating(modelBuilder);
         }
