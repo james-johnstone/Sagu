@@ -46,5 +46,15 @@ namespace Sagu.Services
                 Name = explorer.Name
             };
         }
+
+        public static Model.Area AsEntity(this DTO.Area area)
+        {
+            return new Model.Area()
+            {
+                Id = area.Id,
+                Name = area.Name,
+                Size = area.Size
+            };
+        }
     }
 }
