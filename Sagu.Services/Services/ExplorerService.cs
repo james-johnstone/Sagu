@@ -7,6 +7,7 @@ using Sagu.DAL;
 using Sagu.Model;
 using System.Data.Entity;
 
+
 namespace Sagu.Services
 {
     public class ExplorerService
@@ -15,7 +16,7 @@ namespace Sagu.Services
         {
             using (var context = new SaguContext())
             {
-                return context.Explorers.Include(e => e.ExploredAreas).Select(e => e.AsDTO());
+                return context.Explorers.Include(e => e.ExploredAreas).ToList().Select(e => e.AsDTO());
             }
         }
 
