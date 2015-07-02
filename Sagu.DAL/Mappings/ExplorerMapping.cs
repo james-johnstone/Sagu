@@ -12,6 +12,7 @@ namespace Sagu.DAL.Mappings
     {
         public ExplorerMapping()
         {
+            Property(a => a.Name).IsRequired();
             Property(e => e.Name).HasMaxLength(20);
         }
     }

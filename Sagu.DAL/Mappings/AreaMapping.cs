@@ -12,6 +12,7 @@ namespace Sagu.DAL.Mappings
     {
         public AreaMapping()
         {
+            Property(a => a.Name).IsRequired();
             Property(a => a.Name).HasMaxLength(20);
         }
     }

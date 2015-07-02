@@ -12,6 +12,7 @@ namespace Sagu.DAL.Mappings
     {
         public ExplorerAreaMapping()
         {
+            HasRequired(a => a.Area);
             HasRequired(a => a.Explorer).WithMany(e => e.ExploredAreas);
         }
     }
