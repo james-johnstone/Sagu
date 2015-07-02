@@ -46,7 +46,7 @@ namespace Sagu.Services
                 var explorerToUpdate = context.Explorers.Find(explorer.Id);
 
                 if (explorerToUpdate == null)
-                    return null;
+                    throw new KeyNotFoundException();
 
                 context.Entry(explorerToUpdate).CurrentValues.SetValues(explorer);
                 context.SaveChanges();
@@ -55,11 +55,14 @@ namespace Sagu.Services
             }
         }
 
-        public void DeleteExplorer(Sagu.DTO.Explorer explorer)
+        public void DeleteExplorer(Guid id)
         {
             using (var context = new SaguContext())
             {
-                var explorerToRemove = context.Explorers.Find(explorer.Id);
+                var explorerToRemove = context.Explorers.Find(id);
+
+                if (explorerToRemove == null)
+                    throw new KeyNotFoundException();
 
                 context.Explorers.Remove(explorerToRemove);
                 context.SaveChanges();

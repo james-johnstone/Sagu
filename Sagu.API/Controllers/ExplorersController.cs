@@ -56,10 +56,28 @@ namespace Sagu.API
             {
                 var updatedExplorer = ExplorerService.UpdateExplorer(explorer);
 
-                if (updatedExplorer == null)
-                    return NotFound();
-
                 return Ok(updatedExplorer);
+            }
+            catch (KeyNotFoundException)
+            {
+                return NotFound();
+            }
+            catch (Exception)
+            {
+                return InternalServerError();
+            }
+        }
+
+        public IHttpActionResult Delete(Guid id)
+        {
+            try
+            {
+                ExplorerService.DeleteExplorer(id);
+                return StatusCode(HttpStatusCode.NoContent);
+            }
+            catch (KeyNotFoundException)
+            {
+                return NotFound();
             }
             catch (Exception)
             {
