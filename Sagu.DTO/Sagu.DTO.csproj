@@ -41,9 +41,16 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Entities\Area.cs" />
+    <Compile Include="Entities\AreaImage.cs" />
     <Compile Include="Entities\ExploredArea.cs" />
     <Compile Include="Entities\Explorer.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Sagu.Model\Sagu.Model.csproj">
+      <Project>{e94d38e4-4b14-4992-998b-c91307291fde}</Project>
+      <Name>Sagu.Model</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

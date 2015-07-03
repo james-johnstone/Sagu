@@ -11,6 +11,7 @@ namespace Sagu.DAL.Migrations
         public Configuration()
         {
             AutomaticMigrationsEnabled = true;
+            AutomaticMigrationDataLossAllowed = true;
         }
 
         protected override void Seed(Sagu.DAL.SaguContext context)

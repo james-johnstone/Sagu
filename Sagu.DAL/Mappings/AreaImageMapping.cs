@@ -12,9 +12,9 @@ namespace Sagu.DAL.Mappings
     {
         public AreaImageMapping()
         {
-            HasRequired(a => a.Area).WithOptional(a => a.Image);
-            Property(a => a.Name).IsRequired();
-            Property(a => a.Name).HasMaxLength(255);
+            HasRequired(a => a.Area).WithOptional(a => a.Image).WillCascadeOnDelete(true);
+            Property(a => a.FileName).IsRequired();
+            Property(a => a.FileName).HasMaxLength(255);
         }
     }
 }

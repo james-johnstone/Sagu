@@ -4,12 +4,11 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Sagu.Model
+namespace Sagu.DTO
 {
     public class AreaImage
     {
         public Guid Id { get; set; }
         public string FileName { get; set; }
-        public Area Area { get; set; }
     }
 }

@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Net;
 using System.Net.Http;
+using System.Web;
 using System.Web.Http;
 using Sagu.DTO;
 using Sagu.Services;
@@ -30,7 +31,7 @@ namespace Sagu.API
             return Ok(area);
         }
 
-        public IHttpActionResult Post([FromBody] Area area)
+        public IHttpActionResult Post(Area area)
         {
             if (area == null)
                 return BadRequest();

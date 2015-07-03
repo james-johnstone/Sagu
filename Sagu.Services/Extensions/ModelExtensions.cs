@@ -34,7 +34,18 @@ namespace Sagu.Services
             {
                 Id = area.Id,
                 Name = area.Name,
-                Size = area.Size
+                Size = area.Size,
+                Image = area.Image.Get(i => i.AsDTO())
+            };
+            
+        }
+
+        public static DTO.AreaImage AsDTO(this Model.AreaImage image)
+        {
+            return new DTO.AreaImage()
+            {
+                Id = image.Id,
+                FileName = image.FileName
             };
         }
 
@@ -53,7 +64,17 @@ namespace Sagu.Services
             {
                 Id = area.Id,
                 Name = area.Name,
-                Size = area.Size
+                Size = area.Size,
+                Image = area.Image.AsEntity()
+            };
+        }
+
+        public static Model.AreaImage AsEntity(this DTO.AreaImage image)
+        {
+            return new Model.AreaImage()
+            {
+                Id = image.Id,
+                FileName = image.FileName
             };
         }
     }

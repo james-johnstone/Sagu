@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using Sagu.DAL;
+using System.Data.Entity;
 
 namespace Sagu.Services
 {
@@ -13,7 +14,7 @@ namespace Sagu.Services
         {
             using (var context = new SaguContext())
             {
-                return context.Areas.ToList().Select(a => a.AsDTO());
+                return context.Areas.Include(a => a.Image).ToList().Select(a => a.AsDTO());
             }
         }
 

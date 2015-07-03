@@ -11,8 +11,6 @@ namespace Sagu.Model
         public Guid Id { get; set; }
         public string Name { get; set; }
         public int Size { get; set; }
-
-        public Guid ImageId { get; set; }
         public AreaImage Image { get; set; }
     }
 }
