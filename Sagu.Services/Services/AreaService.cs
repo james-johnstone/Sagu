@@ -22,7 +22,7 @@ namespace Sagu.Services
         {
             using (var context = new SaguContext())
             {
-                return context.Areas.Find(id).Get(a => a.AsDTO());
+                return context.Areas.Include(a => a.Image).FirstOrDefault(a => a.Id == id).Get(a => a.AsDTO());
             }
         }
 
@@ -41,12 +41,14 @@ namespace Sagu.Services
         {
             using (var context = new SaguContext())
             {
-                var areaToUpdate = context.Areas.Find(area.Id);
+                var areaToUpdate = context.Areas.Include(a => a.Image).FirstOrDefault(a => a.Id == area.Id);
 
                 if (areaToUpdate == null)
                     throw new KeyNotFoundException();
 
+                areaToUpdate.Image = area.Image.Get(i => i.AsEntity()) ?? areaToUpdate.Image;
                 context.Entry(areaToUpdate).CurrentValues.SetValues(area);
+
                 context.SaveChanges();
 
                 return area;

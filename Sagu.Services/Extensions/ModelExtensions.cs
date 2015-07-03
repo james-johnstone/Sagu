@@ -65,7 +65,7 @@ namespace Sagu.Services
                 Id = area.Id,
                 Name = area.Name,
                 Size = area.Size,
-                Image = area.Image.AsEntity()
+                Image = area.Image.Get(i => i.AsEntity())
             };
         }
 

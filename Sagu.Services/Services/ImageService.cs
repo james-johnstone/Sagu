@@ -15,18 +15,22 @@ namespace Sagu.Services
 
         public Area SaveImage(Area area, string fileName, byte[] data)
         {
-            if (area.Image != null)
-            {
-                area.Image.FileName = fileName;
-            }
-            else
-            {
-                area.Image = new AreaImage() { Id = area.Id, FileName = fileName };
-            }
+            var existingImage = GetImage(area.Id).Get(i => i.AsDTO());
+
+            area.Image = existingImage ?? new AreaImage() { Id = area.Id };
+            area.Image.FileName = fileName;
 
             File.WriteAllBytes(GetFilePath(area.Image), data);
 
             return area;
+        }
+
+        private Model.AreaImage GetImage(Guid id)
+        {
+            using (var context = new SaguContext())
+            {
+                return context.AreaImages.Find(id);
+            }
         }
 
         private string GetFilePath(AreaImage image)
