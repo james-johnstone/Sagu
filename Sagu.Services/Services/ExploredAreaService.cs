@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using Sagu.DAL;
+using System.Data.Entity;
 
 namespace Sagu.Services
 {
@@ -13,9 +14,7 @@ namespace Sagu.Services
         {
             using (var context = new SaguContext())
             {
-                var explorer = context.Explorers.Find(explorerId);
-
-                return explorer.ExploredAreas.Select(a => a.AsDTO());
+                return context.ExploredAreas.Include(a => a.Area).Where(a => a.ExplorerId == explorerId).ToList().Select(a => a.AsDTO());
             }
         }
 
@@ -31,10 +30,10 @@ namespace Sagu.Services
         {
             using (var context = new SaguContext())
             {
-                var newArea = context.ExploredAreas.Add(area.AsEntity());
+                context.ExploredAreas.Add(area.AsEntity());
                 context.SaveChanges();
 
-                return newArea.AsDTO();
+                return area;
             }
         }
 

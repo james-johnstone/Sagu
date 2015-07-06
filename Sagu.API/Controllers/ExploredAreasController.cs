@@ -40,6 +40,7 @@ namespace Sagu.API.Controllers
 
             try
             {
+                area.Id = Guid.NewGuid();
                 var newExplorer = ExploredAreaService.CreateExploredArea(area);
 
                 return Created(string.Format("{0}/{1}", Request.RequestUri, newExplorer.Id), newExplorer);

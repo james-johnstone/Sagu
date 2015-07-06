@@ -25,7 +25,7 @@ namespace Sagu.Services
                 Id = exploredArea.Id,
                 AmountExplored = exploredArea.AmountExplored,
                 Area = exploredArea.Area.AsDTO(),
-                ExplorerId = exploredArea.Explorer.Id
+                ExplorerId = exploredArea.ExplorerId
             };
         }
 
