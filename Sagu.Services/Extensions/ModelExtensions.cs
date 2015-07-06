@@ -36,6 +36,7 @@ namespace Sagu.Services
                 Id = area.Id,
                 Name = area.Name,
                 Size = area.Size,
+                Order = area.Order,
                 Image = area.Image.Get(i => i.AsDTO())
             };
 
@@ -66,6 +67,7 @@ namespace Sagu.Services
                 Id = area.Id,
                 Name = area.Name,
                 Size = area.Size,
+                Order = area.Order,
                 Image = area.Image.Get(i => i.AsEntity())
             };
         }

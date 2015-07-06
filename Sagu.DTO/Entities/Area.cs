@@ -14,6 +14,8 @@ namespace Sagu.DTO
         public string Name { get; set; }
         [Range(0.0, double.MaxValue)]
         public int Size { get; set; }
+        [Required]
+        public int Order { get; set; }
         public AreaImage Image { get; set; }
     }
 }
