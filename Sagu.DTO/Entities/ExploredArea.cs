@@ -12,6 +12,7 @@ namespace Sagu.DTO
         public Guid Id { get; set; }
         [Required]
         public Area Area { get; set; }
+        public Guid ExplorerId { get; set; }
         [Range(0.0,100)]
         public double AmountExplored { get; set; }
     }

@@ -112,6 +112,7 @@
   <ItemGroup>
     <Compile Include="App_Start\WebApiConfig.cs" />
     <Compile Include="Controllers\AreasController.cs" />
+    <Compile Include="Controllers\ExploredAreasController.cs" />
     <Compile Include="Controllers\ExplorersController.cs" />
     <Compile Include="Formatters\ImageMediaTypeFormatter.cs" />
     <Compile Include="Global.asax.cs">

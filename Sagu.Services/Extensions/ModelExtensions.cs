@@ -24,7 +24,8 @@ namespace Sagu.Services
             {
                 Id = exploredArea.Id,
                 AmountExplored = exploredArea.AmountExplored,
-                Area = exploredArea.Area.AsDTO()
+                Area = exploredArea.Area.AsDTO(),
+                ExplorerId = exploredArea.Explorer.Id
             };
         }
 
@@ -37,7 +38,7 @@ namespace Sagu.Services
                 Size = area.Size,
                 Image = area.Image.Get(i => i.AsDTO())
             };
-            
+
         }
 
         public static DTO.AreaImage AsDTO(this Model.AreaImage image)
@@ -75,6 +76,17 @@ namespace Sagu.Services
             {
                 Id = image.Id,
                 FileName = image.FileName
+            };
+        }
+
+        public static Model.ExploredArea AsEntity(this DTO.ExploredArea exploredArea)
+        {
+            return new Model.ExploredArea()
+            {
+                Id = exploredArea.Id,
+                AreaId = exploredArea.Area.Id,
+                AmountExplored = exploredArea.AmountExplored,
+                ExplorerId = exploredArea.ExplorerId
             };
         }
     }
