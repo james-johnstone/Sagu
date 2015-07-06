@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Net.Http.Headers;
 using System.Web.Http;
+using System.Web.Http.Cors;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Serialization;
 
@@ -13,6 +14,8 @@ namespace Sagu.API
         public static HttpConfiguration Register()
         {
             var config = new HttpConfiguration();
+
+            config.EnableCors(new EnableCorsAttribute("*","*","*"));
 
             config.MapHttpAttributeRoutes();
 
