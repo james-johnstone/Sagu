@@ -49,7 +49,7 @@ namespace Sagu.Services
                 areaToUpdate.AmountExplored = area.AmountExplored;
                 context.SaveChanges();
 
-                return areaToUpdate.AsDTO();
+                return area;
             }
         }
     }
