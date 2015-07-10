@@ -37,6 +37,7 @@ namespace Sagu.API
 
             try
             {
+                explorer.Id = Guid.NewGuid();
                 var newExplorer = ExplorerService.CreateExplorer(explorer);
 
                 return Created(string.Format("{0}/{1}", Request.RequestUri, newExplorer.Id), newExplorer);
