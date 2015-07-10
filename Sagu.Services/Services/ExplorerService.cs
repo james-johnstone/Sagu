@@ -24,8 +24,7 @@ namespace Sagu.Services
         {
             using (var context = new SaguContext())
             {
-                return context.Explorers.Include(e => e.ExploredAreas).Include(e => e.ExploredAreas.Select(a => a.Area))
-                    .FirstOrDefault(e => e.Id == id).Get(e => e.AsDTO());
+                return context.Explorers.Include(e => e.ExploredAreas).Include(e => e.ExploredAreas.Select(a => a.Area)).Include(e => e.ExploredAreas.Select(a => a.Area.Image)).FirstOrDefault(e => e.Id == id).Get(e => e.AsDTO());
                 //return context.Explorers.Find(id).Get(e => e.AsDTO());
             }
         }
