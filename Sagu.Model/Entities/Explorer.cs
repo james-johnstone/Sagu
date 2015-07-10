@@ -10,6 +10,9 @@ namespace Sagu.Model
     {
         public Guid Id { get; set; }
         public string Name { get; set; }
+        public int Level { get; set; }
+        public double CurrentExperience { get; set; }
+        public double TotalExperience { get; set; }
 
         public virtual ICollection<ExploredArea> ExploredAreas { get; set; }
 
@@ -17,6 +20,7 @@ namespace Sagu.Model
         public Explorer()
         {
             ExploredAreas = new List<ExploredArea>();
+            Level = 1;
         }
     }
 }

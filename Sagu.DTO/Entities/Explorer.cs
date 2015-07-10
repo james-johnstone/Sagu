@@ -13,6 +13,10 @@ namespace Sagu.DTO
         [Required]
         [MaxLength(20)]
         public string Name { get; set; }
+        public int Level { get; set; }
+        public double CurrentExperience { get; set; }
+        public double TotalExperience { get; set; }
+
         public  IEnumerable<ExploredArea> ExploredAreas { get; set; }
     }
 }

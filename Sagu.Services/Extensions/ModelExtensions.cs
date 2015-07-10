@@ -14,6 +14,9 @@ namespace Sagu.Services
             {
                 Id = explorer.Id,
                 Name = explorer.Name,
+                Level = explorer.Level,
+                TotalExperience = explorer.TotalExperience,
+                CurrentExperience = explorer.CurrentExperience,
                 ExploredAreas = explorer.ExploredAreas.Select(e => e.AsDTO())
             };
         }
@@ -56,7 +59,10 @@ namespace Sagu.Services
             return new Sagu.Model.Explorer()
             {
                 Id = explorer.Id,
-                Name = explorer.Name
+                Name = explorer.Name,
+                Level = explorer.Level,
+                TotalExperience = explorer.TotalExperience,
+                CurrentExperience = explorer.CurrentExperience,
             };
         }
 

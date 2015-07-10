@@ -31,6 +31,9 @@ namespace Sagu.Services
 
         public DTO.Explorer CreateExplorer(DTO.Explorer explorer)
         {
+            explorer.Id = Guid.NewGuid();
+            explorer.Level = 1;
+
             using (var context = new SaguContext())
             {
                 var newExplorer = context.Explorers.Add(explorer.AsEntity());
