@@ -111,6 +111,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="App_Start\WebApiConfig.cs" />
+    <Compile Include="Controllers\AnimalsController.cs" />
     <Compile Include="Controllers\AreasController.cs" />
     <Compile Include="Controllers\ExploredAreasController.cs" />
     <Compile Include="Controllers\ExplorersController.cs" />
