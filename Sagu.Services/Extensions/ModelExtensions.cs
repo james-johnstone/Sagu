@@ -48,6 +48,11 @@ namespace Sagu.Services
             return Mapper.Map<DTO.Animal>(animal);
         }
 
+        public static Model.Animal AsEntity(this DTO.Animal animal)
+        {
+            return Mapper.Map<Model.Animal>(animal);
+        }
+
         public static Model.Explorer AsEntity(this DTO.Explorer explorer)
         {
             return Mapper.Map<Model.Explorer>(explorer);
