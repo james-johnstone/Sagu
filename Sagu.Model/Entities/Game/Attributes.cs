@@ -6,8 +6,9 @@ using System.Threading.Tasks;
 
 namespace Sagu.Model
 {
-    public class Attributes
+    public class SkillAttribute
     {
+        public Guid Id { get; set; }
         public int Health { get; set; }
         public int Strength { get; set; }
         public int Dexterity { get; set; }

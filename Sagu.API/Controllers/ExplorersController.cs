@@ -15,9 +15,15 @@ namespace Sagu.API
 
         public IHttpActionResult Get()
         {
-            var explorers = ExplorerService.GetExplorers();
-
-            return Ok(explorers);
+            try
+            {
+                var explorers = ExplorerService.GetExplorers();
+                return Ok(explorers);
+            }
+            catch (Exception)
+            {
+                throw;
+            }
         }
 
         public IHttpActionResult Get(Guid id)
