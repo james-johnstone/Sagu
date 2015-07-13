@@ -17,5 +17,7 @@ namespace Sagu.DTO
         [Required]
         public int Order { get; set; }
         public AreaImage Image { get; set; }
+        public IEnumerable<Animal> Animals { get; set; }
+        public IEnumerable<Monster> Monsters { get; set; }
     }
 }
