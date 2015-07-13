@@ -3,99 +3,74 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using AutoMapper;
 
 namespace Sagu.Services
 {
     public static class ModelExtensions
     {
+        static ModelExtensions()
+        {
+            Mapper.CreateMap<DTO.Explorer, Model.Explorer>().ReverseMap();
+
+            Mapper.CreateMap<DTO.ExploredArea, Model.ExploredArea>()
+                .ForMember(a => a.Area, opt => opt.Ignore())
+                .ForMember(a => a.AreaId, opt => opt.MapFrom(src => src.Area.Id))
+                .ReverseMap();
+
+            Mapper.CreateMap<DTO.Area, Model.Area>().ReverseMap();
+            Mapper.CreateMap<DTO.AreaImage, Model.AreaImage>().ReverseMap();
+            Mapper.CreateMap<DTO.Animal, Model.Animal>().ReverseMap();
+        }
+
         public static DTO.Explorer AsDTO(this Model.Explorer explorer)
         {
-            return new DTO.Explorer()
-            {
-                Id = explorer.Id,
-                Name = explorer.Name,
-                Level = explorer.Level,
-                TotalExperience = explorer.TotalExperience,
-                CurrentExperience = explorer.CurrentExperience,
-                ExploredAreas = explorer.ExploredAreas.Select(e => e.AsDTO())
-            };
+            return Mapper.Map<DTO.Explorer>(explorer);
         }
 
         public static DTO.ExploredArea AsDTO(this Model.ExploredArea exploredArea)
         {
-            return new DTO.ExploredArea()
-            {
-                Id = exploredArea.Id,
-                AmountExplored = exploredArea.AmountExplored,
-                Area = exploredArea.Area.AsDTO(),
-                ExplorerId = exploredArea.ExplorerId
-            };
+            return Mapper.Map<DTO.ExploredArea>(exploredArea);
         }
 
         public static DTO.Area AsDTO(this Model.Area area)
         {
-            return new DTO.Area()
-            {
-                Id = area.Id,
-                Name = area.Name,
-                Size = area.Size,
-                Order = area.Order,
-                Image = area.Image.Get(i => i.AsDTO())
-            };
-
+            return Mapper.Map<DTO.Area>(area);
         }
 
         public static DTO.AreaImage AsDTO(this Model.AreaImage image)
         {
-            return new DTO.AreaImage()
-            {
-                Id = image.Id,
-                FileName = image.FileName
-            };
+            return Mapper.Map<DTO.AreaImage>(image);
+        }
+
+        public static DTO.Animal AsDTO(this Model.Animal animal)
+        {
+            return Mapper.Map<DTO.Animal>(animal);
+        }
+
+        public static Model.Animal AsEntity(this DTO.Animal animal)
+        {
+            return Mapper.Map<Model.Animal>(animal);
         }
 
         public static Model.Explorer AsEntity(this DTO.Explorer explorer)
         {
-            return new Sagu.Model.Explorer()
-            {
-                Id = explorer.Id,
-                Name = explorer.Name,
-                Level = explorer.Level,
-                TotalExperience = explorer.TotalExperience,
-                CurrentExperience = explorer.CurrentExperience,
-            };
+            return Mapper.Map<Model.Explorer>(explorer);
         }
 
         public static Model.Area AsEntity(this DTO.Area area)
         {
-            return new Model.Area()
-            {
-                Id = area.Id,
-                Name = area.Name,
-                Size = area.Size,
-                Order = area.Order,
-                Image = area.Image.Get(i => i.AsEntity())
-            };
+            return Mapper.Map<Model.Area>(area);
         }
 
         public static Model.AreaImage AsEntity(this DTO.AreaImage image)
         {
-            return new Model.AreaImage()
-            {
-                Id = image.Id,
-                FileName = image.FileName
-            };
+            return Mapper.Map<Model.AreaImage>(image);
         }
 
         public static Model.ExploredArea AsEntity(this DTO.ExploredArea exploredArea)
         {
-            return new Model.ExploredArea()
-            {
-                Id = exploredArea.Id,
-                AreaId = exploredArea.Area.Id,
-                AmountExplored = exploredArea.AmountExplored,
-                ExplorerId = exploredArea.ExplorerId
-            };
+            return Mapper.Map<Model.ExploredArea>(exploredArea);
         }
     }
 }

@@ -17,6 +17,10 @@ namespace Sagu.DAL
         public DbSet<Area> Areas { get; set; }
         public DbSet<ExploredArea> ExploredAreas { get; set; }
         public DbSet<AreaImage> AreaImages { get; set; }
+        public DbSet<Animal> Animals { get; set; }
+        public DbSet<Monster> Monsters { get; set; }
+        public DbSet<Creature> Creatures { get; set; }
+        public DbSet<SkillAttribute> Attributes { get; set; }
 
         public SaguContext()
             : base("Sagu")

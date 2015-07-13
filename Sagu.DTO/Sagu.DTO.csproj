@@ -40,10 +40,13 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Entities\Animal.cs" />
     <Compile Include="Entities\Area.cs" />
     <Compile Include="Entities\AreaImage.cs" />
+    <Compile Include="Entities\Attributes.cs" />
     <Compile Include="Entities\ExploredArea.cs" />
     <Compile Include="Entities\Explorer.cs" />
+    <Compile Include="Entities\Monster.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

@@ -40,15 +40,20 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Entities\Area.cs" />
-    <Compile Include="Entities\ExploredArea.cs" />
-    <Compile Include="Entities\Explorer.cs" />
-    <Compile Include="Entities\AreaImage.cs" />
+    <Compile Include="Entities\Game\Monster.cs" />
+    <Compile Include="Entities\Game\Animal.cs" />
+    <Compile Include="Entities\World\Area.cs" />
+    <Compile Include="Entities\Game\Attributes.cs" />
+    <Compile Include="Entities\Game\Creature.cs" />
+    <Compile Include="Entities\Player\ExploredArea.cs" />
+    <Compile Include="Entities\Player\Explorer.cs" />
+    <Compile Include="Entities\World\AreaImage.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.

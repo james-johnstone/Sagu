@@ -16,7 +16,7 @@ namespace Sagu.Services
         {
             using (var context = new SaguContext())
             {
-                return context.Explorers.Include(e => e.ExploredAreas).Include(e => e.ExploredAreas.Select(a => a.Area)).ToList().Select(e => e.AsDTO());
+                return GetExplorerObjectMaps().Select(e => e.AsDTO());
             }
         }
 
@@ -24,8 +24,19 @@ namespace Sagu.Services
         {
             using (var context = new SaguContext())
             {
-                return context.Explorers.Include(e => e.ExploredAreas).Include(e => e.ExploredAreas.Select(a => a.Area)).Include(e => e.ExploredAreas.Select(a => a.Area.Image)).FirstOrDefault(e => e.Id == id).Get(e => e.AsDTO());
-                //return context.Explorers.Find(id).Get(e => e.AsDTO());
+                return GetExplorerObjectMaps().FirstOrDefault(e => e.Id == id).Get(e => e.AsDTO());
+            }
+        }
+
+        private IEnumerable<Model.Explorer> GetExplorerObjectMaps()
+        {
+            using (var context = new SaguContext())
+            {
+                return context.Explorers
+                                .Include(e => e.ExploredAreas)
+                                .Include(e => e.ExploredAreas.Select(a => a.Area))
+                                .Include(e => e.ExploredAreas.Select(a => a.Area.Image))
+                                .ToList();
             }
         }
 

@@ -9,43 +9,38 @@ using Sagu.Services;
 
 namespace Sagu.API
 {
-    public class ExplorersController : ApiController
+    public class AnimalsController : ApiController
     {
-        ExplorerService ExplorerService = new ExplorerService();
+        AnimalService AnimalService = new AnimalService();
 
         public IHttpActionResult Get()
         {
-            try
-            {
-                var explorers = ExplorerService.GetExplorers();
-                return Ok(explorers);
-            }
-            catch (Exception)
-            {
-                throw;
-            }
+            var animals = AnimalService.GetAnimals();
+
+            return Ok(animals);
         }
 
         public IHttpActionResult Get(Guid id)
         {
-            var explorer = ExplorerService.GetExplorer(id);
+            var animal = AnimalService.GetAnimal(id);
 
-            if (explorer == null)
+            if (animal == null)
                 return NotFound();
 
-            return Ok(explorer);
+            return Ok(animal);
         }
 
-        public IHttpActionResult Post([FromBody] Explorer explorer)
+        public IHttpActionResult Post(Animal animal)
         {
-            if (explorer == null)
+            if (animal == null)
                 return BadRequest();
 
             try
-            {                
-                var newExplorer = ExplorerService.CreateExplorer(explorer);
+            {
+                animal.Id = Guid.NewGuid();
+                var newAnimal = AnimalService.CreateAnimal(animal);
 
-                return Created(string.Format("{0}/{1}", Request.RequestUri, newExplorer.Id), newExplorer);
+                return Created(string.Format("{0}/{1}", Request.RequestUri, newAnimal.Id), newAnimal);
             }
             catch (Exception)
             {
@@ -53,16 +48,16 @@ namespace Sagu.API
             }
         }
 
-        public IHttpActionResult Put([FromBody] Explorer explorer)
+        public IHttpActionResult Put([FromBody] Animal animal)
         {
-            if (explorer == null)
+            if (animal == null)
                 return BadRequest();
 
             try
             {
-                var updatedExplorer = ExplorerService.UpdateExplorer(explorer);
+                var updatedAnimal = AnimalService.UpdateAnimal(animal);
 
-                return Ok(updatedExplorer);
+                return Ok(updatedAnimal);
             }
             catch (KeyNotFoundException)
             {
@@ -78,7 +73,7 @@ namespace Sagu.API
         {
             try
             {
-                ExplorerService.DeleteExplorer(id);
+                AnimalService.DeleteAnimal(id);
                 return StatusCode(HttpStatusCode.NoContent);
             }
             catch (KeyNotFoundException)
