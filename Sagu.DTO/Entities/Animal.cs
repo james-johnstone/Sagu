@@ -14,6 +14,7 @@ namespace Sagu.DTO
         public bool IsUnique { get; set; }
         public double EncounterRate { get; set; }
         public SkillAttribute Attrbiutes { get; set; }
+        public Area Area { get; set; }
         public Guid AreaId { get; set; }
     }
 }
