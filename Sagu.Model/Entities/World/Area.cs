@@ -13,5 +13,8 @@ namespace Sagu.Model
         public int Order { get; set; }
         public int Size { get; set; }
         public AreaImage Image { get; set; }
+
+        public virtual ICollection<Animal> Animals { get; set; }
+        public virtual ICollection<Monster> Monsters { get; set; }
     }
 }
