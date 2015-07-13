@@ -12,7 +12,7 @@ namespace Sagu.DTO
         public string Name { get; set; }
         public string Kana { get; set; }
         public bool IsUnique { get; set; }
-        public bool EncounterRate { get; set; }
+        public double EncounterRate { get; set; }
         public SkillAttribute Attrbiutes { get; set; }
         public Guid AreaId { get; set; }
     }

@@ -8,6 +8,5 @@ namespace Sagu.Model
 {
     public class Animal : Creature
     {
-        public Guid Id { get; set; }
     }
 }

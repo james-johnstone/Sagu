@@ -37,6 +37,7 @@ namespace Sagu.API
 
             try
             {
+                animal.Id = Guid.NewGuid();
                 var newAnimal = AnimalService.CreateAnimal(animal);
 
                 return Created(string.Format("{0}/{1}", Request.RequestUri, newAnimal.Id), newAnimal);
