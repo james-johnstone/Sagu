@@ -14,7 +14,7 @@ namespace Sagu.Services
         {
             using (var context = new SaguContext())
             {
-                return context.Areas.Include(a => a.Image).ToList().Select(a => a.AsDTO());
+                return GetAreaObjectMaps().Select(a => a.AsDTO());
             }
         }
 
@@ -22,7 +22,19 @@ namespace Sagu.Services
         {
             using (var context = new SaguContext())
             {
-                return context.Areas.Include(a => a.Image).FirstOrDefault(a => a.Id == id).Get(a => a.AsDTO());
+                return GetAreaObjectMaps().FirstOrDefault(a => a.Id == id).Get(a => a.AsDTO());
+            }
+        }
+
+        private IEnumerable<Sagu.Model.Area> GetAreaObjectMaps()
+        {
+            using (var context = new SaguContext())
+            {
+                return context.Areas
+                                .Include(a => a.Image)
+                                .Include(a => a.Animals)
+                                .Include(a => a.Monsters)
+                                .ToList();
             }
         }
 
