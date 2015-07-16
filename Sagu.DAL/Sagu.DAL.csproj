@@ -46,6 +46,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Mappings\AnimalMapping.cs" />
     <Compile Include="Mappings\AreaImageMapping.cs" />
     <Compile Include="Mappings\AreaMapping.cs" />
     <Compile Include="Mappings\ExplorerAreaMapping.cs" />

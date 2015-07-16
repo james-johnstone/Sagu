@@ -37,6 +37,19 @@ namespace Sagu.DAL
             modelBuilder.Configurations.Add(new AreaMapping());
             modelBuilder.Configurations.Add(new ExplorerAreaMapping());
             modelBuilder.Configurations.Add(new AreaImageMapping());
+            modelBuilder.Configurations.Add(new AnimalMapping());
+
+            modelBuilder.Entity<Animal>().Map(m =>
+            {
+                m.MapInheritedProperties();
+                m.ToTable("Animals");
+            });
+
+            modelBuilder.Entity<Monster>().Map(m =>
+            {
+                m.MapInheritedProperties();
+                m.ToTable("Monsters");
+            });
 
             base.OnModelCreating(modelBuilder);
         }

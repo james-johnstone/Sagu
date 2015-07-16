@@ -36,6 +36,8 @@ namespace Sagu.Services
                                 .Include(e => e.ExploredAreas)
                                 .Include(e => e.ExploredAreas.Select(a => a.Area))
                                 .Include(e => e.ExploredAreas.Select(a => a.Area.Image))
+                                .Include(e => e.ExploredAreas.Select(a => a.Area.Animals))
+                                .Include(e => e.ExploredAreas.Select(a => a.Area.Monsters))
                                 .ToList();
             }
         }

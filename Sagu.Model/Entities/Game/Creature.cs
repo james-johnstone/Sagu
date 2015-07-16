@@ -13,8 +13,5 @@ namespace Sagu.Model
         public string Kana { get; set; }
         public bool IsUnique { get; set; }
         public double EncounterRate { get; set; }
-        public SkillAttribute Attrbiutes { get; set; }
-        public Guid AreaId { get; set; }
-        public Area Area { get; set; }
     }
 }

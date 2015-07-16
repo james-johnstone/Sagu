@@ -29,7 +29,8 @@ namespace Sagu.API
             config.Formatters.JsonFormatter.SupportedMediaTypes.Add(new MediaTypeHeaderValue("text/html"));
             config.Formatters.JsonFormatter.SerializerSettings.Formatting = Formatting.Indented;
             config.Formatters.JsonFormatter.SerializerSettings.ContractResolver = new CamelCasePropertyNamesContractResolver();
-            
+            config.Formatters.JsonFormatter.SerializerSettings.PreserveReferencesHandling = PreserveReferencesHandling.Objects;
+
             return config;
         }
     }
